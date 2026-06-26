@@ -1,0 +1,64 @@
+{% extends 'posts/base.html' %}
+
+{% block titulo %}{{ post.titulo }} — US_blog{% endblock %}
+{% block meta_description %}{{ post.conteudo|truncatewords:30 }}{% endblock %}
+
+{% block conteudo %}
+<div class="container page-layout page-layout--with-sidebar">
+    <div class="main-content">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="{% url 'home' %}">Blog</a>
+            <span class="breadcrumb__sep" aria-hidden="true">/</span>
+            {% if post.categoria %}
+                <a href="{% url 'home' %}?categoria={{ post.categoria.slug }}">{{ post.categoria.nome }}</a>
+                <span class="breadcrumb__sep" aria-hidden="true">/</span>
+            {% endif %}
+            <span aria-current="page">{{ post.titulo|truncatewords:6 }}</span>
+        </nav>
+
+        <article class="article">
+            <header class="article__header">
+                <h1 class="article__title">{{ post.titulo }}</h1>
+                <div class="article__meta">
+                    <time datetime="{{ post.data_de_criacao|date:'Y-m-d' }}">
+                        Publicado em {{ post.data_de_criacao|date:"d \d\e F \d\e Y" }}
+                    </time>
+                    {% if post.categoria %}
+                        <a href="{% url 'home' %}?categoria={{ post.categoria.slug }}" class="category-badge">{{ post.categoria.nome }}</a>
+                    {% endif %}
+                </div>
+                {% if post.tags.exists %}
+                <div class="tag-list" style="margin-top: 1rem;">
+                    {% for tag in post.tags.all %}
+                        <a href="{% url 'home' %}?tag={{ tag.slug }}" class="tag">{{ tag.nome }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </header>
+
+            <div class="article__body">
+                {% for paragraph in post.conteudo.splitlines %}
+                    {% if paragraph.strip %}
+                        <p>{{ paragraph }}</p>
+                    {% endif %}
+                {% empty %}
+                    <p>{{ post.conteudo }}</p>
+                {% endfor %}
+            </div>
+
+            {% if user.is_authenticated %}
+            <footer class="article__footer">
+                <a href="{% url 'AtualizarPost' post.pk %}" class="btn btn--secondary btn--sm">Editar</a>
+                <a href="{% url 'DeletarPost' post.pk %}" class="btn btn--danger btn--sm">Deletar</a>
+            </footer>
+            {% endif %}
+        </article>
+
+        <p style="margin-top: 1.5rem;">
+            <a href="{% url 'home' %}" class="read-more">← Voltar ao blog</a>
+        </p>
+    </div>
+
+    {% include 'posts/partials/_sidebar.html' %}
+</div>
+{% endblock %}

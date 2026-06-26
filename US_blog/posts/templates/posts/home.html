@@ -1,0 +1,62 @@
+{% extends 'posts/base.html' %}
+
+{% block titulo %}US_blog — Artigos sobre desenvolvimento web{% endblock %}
+
+{% block conteudo %}
+<div class="container page-layout page-layout--with-sidebar">
+    <div class="main-content">
+        <header class="page-hero">
+            <h1 class="page-hero__title">
+                {% if query %}
+                    Resultados para "{{ query }}"
+                {% elif active_category %}
+                    {{ active_category.nome }}
+                {% elif active_tag %}
+                    #{{ active_tag.nome }}
+                {% else %}
+                    Blog
+                {% endif %}
+            </h1>
+            <p class="page-hero__subtitle">
+                {% if user.is_authenticated %}
+                    Bem-vindo de volta, {{ user.username }}. Explore os artigos ou publique algo novo.
+                {% else %}
+                    Artigos sobre Django, Python e desenvolvimento web moderno.
+                {% endif %}
+            </p>
+
+            {% if query or active_category or active_tag %}
+            <div class="filter-banner">
+                <span class="filter-banner__label">Filtros ativos:</span>
+                {% if query %}
+                    <span class="filter-banner__value">"{{ query }}"</span>
+                {% endif %}
+                {% if active_category %}
+                    <a href="{% url 'home' %}?categoria={{ active_category.slug }}" class="category-badge">{{ active_category.nome }}</a>
+                {% endif %}
+                {% if active_tag %}
+                    <a href="{% url 'home' %}?tag={{ active_tag.slug }}" class="tag">{{ active_tag.nome }}</a>
+                {% endif %}
+                <a href="{% url 'home' %}" class="btn btn--ghost btn--sm">Limpar filtros</a>
+            </div>
+            {% endif %}
+        </header>
+
+        {% if posts %}
+            <div class="posts-grid">
+                {% for post in posts %}
+                    {% include 'posts/partials/_post_card.html' %}
+                {% endfor %}
+            </div>
+        {% else %}
+            {% if query or active_category or active_tag %}
+                {% include 'posts/partials/_empty_state.html' with icon="🔍" title="Nenhum resultado encontrado" message="Tente outros termos de busca ou remova os filtros aplicados." show_clear=True %}
+            {% else %}
+                {% include 'posts/partials/_empty_state.html' with show_create=True %}
+            {% endif %}
+        {% endif %}
+    </div>
+
+    {% include 'posts/partials/_sidebar.html' %}
+</div>
+{% endblock %}

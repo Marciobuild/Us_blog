@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+
+{% block titulo %}Deletar post — US_blog{% endblock %}
+
+{% block conteudo %}
+<div class="container" style="padding-block: 2rem 3rem;">
+    <div class="form-card delete-card">
+        <div class="delete-card__icon" aria-hidden="true">!</div>
+        <h1 class="delete-card__title">Confirmar exclusão</h1>
+        <p class="delete-card__text">
+            Tem certeza que deseja excluir <strong>{{ object.titulo }}</strong>?
+            Esta ação não pode ser desfeita.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="btn-group" style="justify-content: center;">
+                <button type="submit" class="btn btn--danger">Confirmar exclusão</button>
+                <a href="{% url 'home' %}" class="btn btn--secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

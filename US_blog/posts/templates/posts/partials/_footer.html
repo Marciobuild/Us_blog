@@ -1,0 +1,42 @@
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="site-footer__grid">
+            <div>
+                <p class="site-footer__brand">US_blog</p>
+                <p class="site-footer__desc">
+                    Blog de desenvolvimento web construído com Django. Compartilhando conhecimento sobre Python, frontend e boas práticas.
+                </p>
+            </div>
+            <div>
+                <h2 class="site-footer__heading">Navegação</h2>
+                <ul class="site-footer__links">
+                    <li><a href="{% url 'home' %}">Blog</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'CriarPost' %}">Novo Post</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Entrar</a></li>
+                        <li><a href="{% url 'registro' %}">Registrar</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div>
+                <h2 class="site-footer__heading">Conecte-se</h2>
+                <div class="social-links" aria-label="Redes sociais">
+                    <a href="https://github.com/Marciobuild" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <span aria-hidden="true">GH</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <span aria-hidden="true">in</span>
+                    </a>
+                    <a href="marciodev@gmail.com" aria-label="Email">
+                        <span aria-hidden="true">@</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <p>&copy; {% now "Y" %} US_blog. Todos os direitos reservados.</p>
+            <p>Feito com Django</p>
+        </div>
+    </div>
+</footer>

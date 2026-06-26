@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}US_blog — artigos sobre desenvolvimento web, Django e tecnologia.{% endblock %}">
+    <title>{% block titulo %}US_blog{% endblock %}</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+    <script>
+        (function () {
+            var key = 'us_blog_theme';
+            var stored = localStorage.getItem(key);
+            var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include 'posts/partials/_header.html' %}
+
+    <main id="main-content">
+        {% include 'posts/partials/_messages.html' %}
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    {% include 'posts/partials/_footer.html' %}
+
+    <script src="{% static 'posts/js/main.js' %}" defer></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

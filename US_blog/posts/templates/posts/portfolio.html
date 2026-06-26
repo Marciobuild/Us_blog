@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Django Developer</title>
+    <link rel="stylesheet" href="{% static 'posts/portfolio.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% load static %}
+</head>
+<body>
+    <!-- Header/Navegação -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>DevPortfólio</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#hero" class="nav-link">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#tecnologias" class="nav-link">Tecnologias</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/150" alt="Foto de Perfil" class="avatar">
+            </div>
+            <h1 class="hero-title">Seu Nome Aqui</h1>
+            <h2 class="hero-subtitle">Django Developer</h2>
+            <p class="hero-description">
+                Desenvolvedor Web apaixonado por criar soluções elegantes e eficientes. 
+                Especializado em Django, Python e tecnologias web modernas.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Desça para explorar</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <p>
+                        Sou um desenvolvedor web full-stack apaixonado por criar experiências digitais 
+                        incríveis. Com mais de X anos de experiência em desenvolvimento web, tenho trabalhado 
+                        em diversos projetos, desde pequenos sites até aplicações complexas.
+                    </p>
+                    <p>
+                        Minha especialidade é Python e Django, mas também domino outras tecnologias do 
+                        ecossistema web. Sou adepto de boas práticas de programação, clean code e sempre 
+                        busco aprender novas tecnologias para oferecer as melhores soluções.
+                    </p>
+                    <p>
+                        Quando não estou codificando, gosto de contribuir para projetos open source, 
+                        escrever sobre desenvolvimento web e compartilhar conhecimento com a comunidade.
+                    </p>
+                </div>
+                <div class="sobre-stats">
+                    <div class="stat-card">
+                        <h3>50+</h3>
+                        <p>Projetos Completos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>30+</h3>
+                        <p>Clientes Satisfeitos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>5+</h3>
+                        <p>Anos de Experiência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section class="projetos" id="projetos">
+        <div class="container">
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 1">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 1</h3>
+                        <p>Descrição do seu primeiro projeto. Tecnologias utilizadas: Django, PostgreSQL, React.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 2">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 2</h3>
+                        <p>Descrição do seu segundo projeto. Tecnologias utilizadas: Django, REST API, SQLite.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">API REST</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 3">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 3</h3>
+                        <p>Descrição do seu terceiro projeto. Tecnologias utilizadas: Python, Django, HTML/CSS.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Frontend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 4">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 4</h3>
+                        <p>Descrição do seu quarto projeto. Tecnologias utilizadas: Django, JavaScript, CSS.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 5">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 5</h3>
+                        <p>Descrição do seu quinto projeto. Tecnologias utilizadas: Django, Celery, Redis.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Celery</span>
+                            <span class="tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Projeto 6">
+                        <div class="project-overlay">
+                            <a href="https://github.com" class="btn btn-small" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto 6</h3>
+                        <p>Descrição do seu sexto projeto. Tecnologias utilizadas: Django, Docker, AWS.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Blog -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">Blog</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-date">23 Jun</div>
+                    <h3>Introdução a Django REST Framework</h3>
+                    <p>Aprenda como criar APIs robustas e eficientes com Django REST Framework. Neste artigo, exploraremos os conceitos fundamentais...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">20 Jun</div>
+                    <h3>Python: Boas Práticas e Padrões de Código</h3>
+                    <p>Conheça as melhores práticas para escrever código Python limpo e profissional. Discutiremos PEP 8, type hints e muito mais...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">18 Jun</div>
+                    <h3>Deploy de Aplicações Django com Docker</h3>
+                    <p>Guia completo sobre como dockerizar sua aplicação Django e fazer deploy em produção. Aprenda as melhores práticas...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">15 Jun</div>
+                    <h3>Otimizando Performance em Django</h3>
+                    <p>Dicas essenciais para melhorar a performance de sua aplicação Django. Inclui caching, indexação de banco de dados...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">12 Jun</div>
+                    <h3>Testando Aplicações Django com Pytest</h3>
+                    <p>Aprenda como escrever testes automatizados eficientes usando Pytest. Aumente a confiabilidade do seu código...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-date">10 Jun</div>
+                    <h3>Segurança em Aplicações Web</h3>
+                    <p>Discutiremos as principais vulnerabilidades web (OWASP Top 10) e como proteger sua aplicação contra ataques...</p>
+                    <a href="#" class="read-more">Ler Mais →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Tecnologias -->
+    <section class="tecnologias" id="tecnologias">
+        <div class="container">
+            <h2 class="section-title">Tecnologias</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Linguagem principal para desenvolvimento backend</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Django</h3>
+                    <p>Framework web poderoso e escalável</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Estrutura semântica de páginas web</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Estilos modernos e responsivos</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p>Interatividade e lógica do frontend</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                    <p>Controle de versão e colaboração</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Hospedagem de repositórios e colaboração</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h3>PostgreSQL</h3>
+                    <p>Banco de dados relacional robusto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-content">
+                <p class="contato-description">
+                    Tem um projeto em mente? Gostaria de trabalhar juntos? 
+                    Deixe uma mensagem e entrarei em contato em breve!
+                </p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Assunto">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Conexões</h4>
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:seu@email.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Rápido</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Informações</h4>
+                    <p>Desenvolvedor Web Full-Stack especializado em Django e Python.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
+                <p>Feito com <i class="fas fa-heart"></i> para a comunidade dev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'posts/portfolio.js' %}"></script>
+</body>
+</html>

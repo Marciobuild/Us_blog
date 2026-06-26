@@ -1,0 +1,55 @@
+<aside class="sidebar" aria-label="Barra lateral">
+    <section class="widget">
+        <h2 class="widget__title">Buscar</h2>
+        {% include 'posts/partials/_search_form.html' %}
+    </section>
+
+    {% if sidebar_recent_posts %}
+    <section class="widget">
+        <h2 class="widget__title">Recentes</h2>
+        <ul class="widget-list">
+            {% for recent in sidebar_recent_posts %}
+            <li class="widget-list__item">
+                <a href="{% url 'PostDetalhes' recent.pk %}" class="widget-list__link">
+                    <span>{{ recent.titulo|truncatewords:8 }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    {% if sidebar_categories %}
+    <section class="widget">
+        <h2 class="widget__title">Categorias</h2>
+        <ul class="widget-list">
+            {% for category in sidebar_categories %}
+            <li class="widget-list__item">
+                <a href="{% url 'home' %}?categoria={{ category.slug }}" class="widget-list__link">
+                    <span>{{ category.nome }}</span>
+                    <span class="widget-list__count">{{ category.post_count }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    {% if sidebar_tags %}
+    <section class="widget">
+        <h2 class="widget__title">Tags</h2>
+        <div class="tag-cloud">
+            {% for tag in sidebar_tags %}
+                <a href="{% url 'home' %}?tag={{ tag.slug }}" class="tag">{{ tag.nome }}</a>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="widget">
+        <h2 class="widget__title">Sobre</h2>
+        <p class="widget-about__text">
+            Projeto de blog desenvolvido com Django, focado em boas práticas de frontend, acessibilidade e design responsivo.
+        </p>
+    </section>
+</aside>

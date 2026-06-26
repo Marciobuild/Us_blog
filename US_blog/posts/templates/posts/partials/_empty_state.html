@@ -1,0 +1,10 @@
+<div class="empty-state" role="status">
+    <div class="empty-state__icon" aria-hidden="true">{{ icon|default:"📝" }}</div>
+    <h2 class="empty-state__title">{{ title|default:"Nenhum artigo encontrado" }}</h2>
+    <p class="empty-state__text">{{ message|default:"Ainda não há posts publicados. Volte em breve!" }}</p>
+    {% if show_create and user.is_authenticated %}
+        <a href="{% url 'CriarPost' %}" class="btn btn--primary">Criar primeiro post</a>
+    {% elif show_clear %}
+        <a href="{% url 'home' %}" class="btn btn--secondary">Limpar filtros</a>
+    {% endif %}
+</div>

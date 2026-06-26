@@ -1,0 +1,20 @@
+<form class="search-form" action="{% url 'home' %}" method="get" role="search" data-search-form>
+    <label for="search-input" class="sr-only">Buscar artigos</label>
+    <span class="search-form__icon" aria-hidden="true">⌕</span>
+    <input
+        type="search"
+        id="search-input"
+        name="q"
+        class="search-form__input"
+        placeholder="Buscar artigos..."
+        value="{{ query|default:'' }}"
+        autocomplete="off"
+    >
+    {% if active_category %}
+        <input type="hidden" name="categoria" value="{{ active_category.slug }}">
+    {% endif %}
+    {% if active_tag %}
+        <input type="hidden" name="tag" value="{{ active_tag.slug }}">
+    {% endif %}
+    <button type="submit" class="btn btn--primary btn--sm search-form__submit">Buscar</button>
+</form>
